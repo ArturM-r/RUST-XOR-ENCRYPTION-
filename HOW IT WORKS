@@ -1,0 +1,59 @@
+🔍 How It Works
+XOR Encryption Principle
+text
+Plain Text:  H    e    l    l    o
+ASCII:       72   101  108  108  111
+Password:    s    e    c    r    e
+ASCII:       115  101  99   114  101
+XOR Result:  45   0    15   30   10
+Password Padding
+text
+Text: "Hello" (5 chars)
+Password: "ab" (2 chars)
+Padded Password: "ababa" (repeats to match length)
+🧪 Testing
+Run the test suite:
+
+bash
+cargo test
+Manual Testing
+rust
+// Quick test in main.rs
+fn test_encryption_decryption() {
+    let text = "Test Message";
+    let password = "MyPass123";
+    
+    // Simulate encryption
+    let padded = pad_or_trim(text.len(), password.as_bytes());
+    let encrypted = zip_and_xor(&padded, text.as_bytes());
+    
+    // Simulate decryption
+    let decrypted = decipher(&padded, encrypted);
+    
+    assert_eq!(decrypted, text);
+}
+📊 Performance
+Encryption/Decryption: O(n) time complexity
+
+Memory: Minimal allocations, uses iterators for lazy evaluation
+
+No heap fragmentation: Pre-allocated vectors
+
+🔒 Security Notes
+⚠️ Educational Use Only - This is NOT cryptographically secure:
+
+XOR cipher alone is vulnerable to frequency analysis
+
+No key derivation function (KDF)
+
+No authentication or integrity checks
+
+Password repeated in padding creates patterns
+
+For real encryption, use:
+
+AES-256-GCM
+
+Argon2 for key derivation
+
+Authenticated encryption modes
