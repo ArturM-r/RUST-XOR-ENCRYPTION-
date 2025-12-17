@@ -57,3 +57,4 @@ Equal length: Uses as-is
 zip_and_xor(password: &[u8], data: &[u8]) -> Vec<u8>
 Core XOR operation using Rust iterators.
 
+I DONT WANNA DO SOME TEST BECAUSE I AM TIRED OF STUDY AS FCK SRY
